@@ -181,9 +181,11 @@ function mouseReleased() {
         if (playerToMove.constructor.name === 'HumanPlayer') {
             var x = Math.floor(mouseX / (width / 3));
             var y = Math.floor(mouseY / (height / 3));
-            var move = y * 3 + x;
-            state.play(move);
-            awaitingMove = false;
+            if (x >= 0 && x < 3 && y >= 0 && y < 3) {
+                var move = y * 3 + x;
+                state.play(move);
+                awaitingMove = false;
+            }
         }
     }
 }

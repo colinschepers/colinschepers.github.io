@@ -10,7 +10,6 @@ class State {
     play(move) {
         if (typeof move === 'undefined' || !this.isValid(move)) {
             console.error("Invalid move: " + move);
-            throw "Invalid move: " + move;
         }
 
         var player = this.roundNr++ & 1;
