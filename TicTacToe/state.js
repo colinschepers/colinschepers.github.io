@@ -12,8 +12,8 @@ class State {
             console.error("Invalid move: " + move);
         }
 
-        var player = this.roundNr++ & 1;
-        var board = this.bitBoards[player] |= State.bitMove[move];
+        let player = this.roundNr++ & 1;
+        let board = this.bitBoards[player] |= State.bitMove[move];
 
         if (this.isLine(board)) {
             this.isGameOver = true;
@@ -50,7 +50,7 @@ class State {
             [-1, -1, -1],
             [-1, -1, -1]
         ]
-        for (var i = 0; i < 9; i++) {
+        for (let i = 0; i < 9; i++) {
             if ((this.bitBoards[0] & (1 << i)) > 0) {
                 board[i % 3][Math.floor(i / 3)] = 0;
             } else if ((this.bitBoards[1] & (1 << i)) > 0) {
@@ -61,16 +61,16 @@ class State {
     }
 
     clone() {
-        var state = new State();
+        let state = new State();
         state.copyPosition(this);
         return state;
     }
 
     copyPosition(state) {
-        this.boards[0] = state.boards[0];
-        this.boards[1] = state.boards[1];
+        this.bitBoards[0] = state.bitBoards[0];
+        this.bitBoards[1] = state.bitBoards[1];
         this.score = state.score;
-        this.roundNr = state.round;
+        this.roundNr = state.roundNr;
         this.gameOver = state.gameOver;
     }
 }
@@ -91,7 +91,7 @@ State.lineFilter = 0b001001001001001001001001;
 
 State.moves = [];
 for (var i = 0; i < 0b1000000000; i++) {
-    var movesForPosition = [];
+    let movesForPosition = [];
     for (var x = 0; x < 9; x++) {
         if ((i & (1 << x)) == 0) {
             movesForPosition.push(x);

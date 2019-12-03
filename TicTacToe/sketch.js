@@ -3,124 +3,46 @@ const height = 400;
 const thickness = 10;
 const gridSizeX = (width - 2 * thickness) / 3;
 const gridSizeY = (height - 2 * thickness) / 3;
-const bg_color = 150;
 
-var players = [new HumanPlayer(), new HumanPlayer()];
+var players = [new HumanPlayer(), new MiniMaxPlayer()];
 var state = new State();
 var awaitingMove = false;
-var winningLine = [];
-var animation_alpha = 0;
-
-var aniRotation = 0;
-var aniStep = 0;
-var aniPercentage = 0;
-var aniCenter = [];
-var aniStates = [];
+var animation = null;
+var winningLine = null;
 
 function setup() {
     createCanvas(width, height, WEBGL);
-
-    createP('');
-
-    selO = createButton('New Game');
-    selO.mousePressed(newGame);
-    selX = createSelect();
-    selX.option('Human');
-    selX.option('Random');
-    selX.changed(selectPlayerEvent);
-    selO = createSelect();
-    selO.option('Human');
-    selO.option('Random');
-    selO.value('Human');
-    selO.changed(selectPlayerEvent);
-
-    //debugMode(600, 50, 0, 300, 0, 600, -300, -300, 0);
-
+    createMenu();
     newGame();
+    //debugMode(600, 50, 0, 300, 0, 600, -300, -300, 0);
 }
 
 function draw() {
-    background(bg_color);
-
-    frameRate(30);
+    background(55);
+    //frameRate(30);
 
     updateState();
 
+    if (state.isGameOver) {
+        if (!animation) {
+            winningLine = calculateWinningLine();
+            animation = new WinningAnimation(winningLine, gridSizeX, gridSizeY);
+        }
+        animation.animate();
+    }
+
+    createLight();
+    drawFrame();
+    drawState();
+
+    //orbitControl();
+}
+
+function createLight() {
     let v = createVector(mouseX - width / 2, mouseY - width / 2, 0);
     v.normalize();
     directionalLight(255, 255, 255, v);
     noStroke();
-
-    if (state.isGameOver) {
-        animate();
-    }
-
-    drawFrame();
-    drawState();
-
-    orbitControl();
-}
-
-function updateState() {
-    if (!state.isGameOver) {
-        if (!awaitingMove) {
-            move();
-        }
-    } else if (state.score == 0.5) {
-        // its a draw
-    } else {
-        // we have a winner!
-        calculateWinningLine();
-    }
-}
-
-function move() {
-    awaitingMove = true;
-
-    var roundNr = state.roundNr;
-    var playerToMove = players[state.getPlayerToMove()];
-
-    if (playerToMove.constructor.name !== 'HumanPlayer') {
-        playerToMove
-            .getMove(state)
-            .catch(e => {
-                console.error(e);
-            })
-            .then((move) => {
-                if (roundNr == state.roundNr) {
-                    state.play(move);
-                }
-                awaitingMove = false;
-            });
-    }
-}
-
-function calculateWinningLine() {
-    var board = state.get2DBoard();
-    for (var i = 0; i < 3; i++) {
-        if (board[i][0] != -1 && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
-            winningLine[i][0] = 1;
-            winningLine[i][1] = 1;
-            winningLine[i][2] = 1;
-        }
-        if (board[0][i] != -1 && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
-            winningLine[0][i] = 1;
-            winningLine[1][i] = 1;
-            winningLine[2][i] = 1;
-        }
-    }
-    if (board[1][1] != -1) {
-        if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
-            winningLine[0][0] = 1;
-            winningLine[1][1] = 1;
-            winningLine[2][2] = 1;
-        }
-        if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
-            winningLine[0][2] = 1;
-            winningLine[1][1] = 1;
-            winningLine[2][0] = 1;
-        }
-    }
 }
 
 function drawState() {
@@ -199,65 +121,44 @@ function drawFrame() {
     pop();
 }
 
-function animate() {
-    if (state.score == 0.5) {
-        aniRotation += 0.01;
-        rotateX(aniRotation);
-        return;
-    }
+function createMenu() {
+    let p = createP('');
 
-    if (aniStates.length == 0) {
-        fillAnimationStates();
-    }
 
-    if (aniStates.length > 0) {
-        aniPercentage += 0.01;
+    selX = createSelect("PlayerX");
+    selX.option('Human');
+    selX.option('Random');
+    selX.option('MiniMax');
+    selX.value((players[0].constructor.name).replace('Player', ''));
+    selX.changed(selectPlayerEvent);
 
-        let startX = aniStates[aniStep][0];
-        let startY = aniStates[aniStep][1];
-        let startZ = aniStates[aniStep][2];
-        let endX = aniStates[(aniStep + 1) % aniStates.length][0];
-        let endY = aniStates[(aniStep + 1) % aniStates.length][1];
-        let endZ = aniStates[(aniStep + 1) % aniStates.length][2];
-        let x = startX + aniPercentage * (endX - startX);
-        let y = startY + aniPercentage * (endY - startY);
-        let z = startZ + aniPercentage * (endZ - startZ);
+    newGameButton = createButton('New Game');
+    newGameButton.mousePressed(newGame);
 
-        camera(x, y, z, aniCenter[0], aniCenter[1], aniCenter[2], 0, 1, 0);
-
-        if (aniPercentage >= 1.0) {
-            aniPercentage = 0;
-            aniStep = (aniStep + 1) % aniStates.length;
-        }
-    }
+    selO = createSelect();
+    selO.option('Human');
+    selO.option('Random');
+    selO.option('MiniMax');
+    selO.value((players[1].constructor.name).replace('Player', ''));
+    selO.changed(selectPlayerEvent);
 }
 
-function fillAnimationStates() {
-    let gridSizeX = -width / 3;
-    let gridSizeY = -height / 3;
+function selectPlayerEvent() {
+    console.log('selectPlayerEvent');
+    setPlayer(0, selX.value());
+    setPlayer(1, selO.value());
+    console.log(players);
+}
 
-    for (var i = 0; i < 3; i++) {
-        if (winningLine[0][i] && winningLine[1][i] && winningLine[2][i]) {
-            let y = gridSizeY - gridSizeY * i
-            aniStates = [
-                [0, 0, 350],
-                [-gridSizeX * 5, 0, 0],
-                [0, 0, -350],
-                [gridSizeX * 5, 0, 0]
-            ];
-            aniCenter = [0, y, 0]
-            return;
-        } else if (winningLine[i][0] && winningLine[i][1] && winningLine[i][2]) {
-            let x = gridSizeX - gridSizeX * i
-            aniStates = [
-                [0, 0, 350],
-                [0, gridSizeY * 5, 0],
-                [0, 0, -350],
-                [0, -gridSizeY * 5, 0]
-            ];
-            aniCenter = [x, 0, 0]
-            return;
-        }
+function setPlayer(playerNr, playerType) {
+    if (playerType == 'Human') {
+        players[playerNr] = new HumanPlayer();
+    } else if (playerType == 'Random') {
+        players[playerNr] = new RandomPlayer();
+    } else if (playerType == 'MiniMax') {
+        players[playerNr] = new MiniMaxPlayer();
+    } else {
+        console.error('Invalid playerType ' + playerType)
     }
 }
 
@@ -279,31 +180,76 @@ function mouseReleased() {
 function newGame() {
     state = new State();
     awaitingMove = false;
-    winningLine = [
+    animation = null;
+    winningLine = calculateWinningLine();
+    camera(0, 0, 350, 0, 0, 0, 0, 1, 0);
+}
+
+function updateState() {
+    if (!state.isGameOver) {
+        if (!awaitingMove) {
+            move();
+        }
+    } else if (state.score != 0.5) {
+        calculateWinningLine();
+    }
+}
+
+function move() {
+    awaitingMove = true;
+
+    var roundNr = state.roundNr;
+    var playerToMove = players[state.getPlayerToMove()];
+
+    if (playerToMove.constructor.name !== 'HumanPlayer') {
+        playerToMove
+            .getMove(state)
+            .catch(e => {
+                console.error(e);
+            })
+            .then((move) => {
+                if (roundNr == state.roundNr) {
+                    state.play(move);
+                }
+                awaitingMove = false;
+            });
+    }
+}
+
+function calculateWinningLine() {
+    let board = state.get2DBoard();
+    let winningLine = [
         [0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]
     ];
-    aniRotation = 0;
-    aniStep = 0;
-    aniPercentage = 0;
-    aniStates = [];
-    camera(0, 0, 350, 0, 0, 0, 0, 1, 0);
-}
 
-function selectPlayerEvent() {
-    console.log('selectPlayerEvent');
-    setPlayer(0, selX.value());
-    setPlayer(1, selO.value());
-    console.log(players);
-}
-
-function setPlayer(playerNr, playerType) {
-    if (playerType == 'Human') {
-        players[playerNr] = new HumanPlayer();
-    } else if (playerType == 'Random') {
-        players[playerNr] = new RandomPlayer();
-    } else {
-        console.error('Invalid playerType ' + playerType)
+    if (state.isGameOver) {
+        for (var i = 0; i < 3; i++) {
+            if (board[i][0] != -1 && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
+                winningLine[i][0] = 1;
+                winningLine[i][1] = 1;
+                winningLine[i][2] = 1;
+            }
+            if (board[0][i] != -1 && board[0][i] == board[1][i] && board[1][i] == board[2][i]) {
+                winningLine[0][i] = 1;
+                winningLine[1][i] = 1;
+                winningLine[2][i] = 1;
+            }
+        }
+        if (board[1][1] != -1) {
+            if (board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+                winningLine[0][0] = 1;
+                winningLine[1][1] = 1;
+                winningLine[2][2] = 1;
+            }
+            if (board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+                winningLine[0][2] = 1;
+                winningLine[1][1] = 1;
+                winningLine[2][0] = 1;
+            }
+        }
     }
+
+    return winningLine;
 }

@@ -1,8 +1,6 @@
 class RandomPlayer {
-    constructor() {}
-
     async getMove(state) {
-        await sleep(500);
+        //await sleep(100);
         var moves = state.getValidMoves();
         var randomNr = Math.floor((Math.random() * moves.length));
         return moves[randomNr];
