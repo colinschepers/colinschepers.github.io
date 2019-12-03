@@ -29,7 +29,7 @@ class State {
     }
 
     isValid(move) {
-        return (this.getMergedBoard() & State.bitMove[move]) == 0;
+        return move >= 0 && move < 9 && (this.getMergedBoard() & State.bitMove[move]) == 0;
     }
 
     getMergedBoard() {
