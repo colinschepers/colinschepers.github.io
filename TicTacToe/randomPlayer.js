@@ -1,9 +1,15 @@
 class RandomPlayer {
+    constructor(runningTimeInMilliseconds) {
+        this.runningTimeInMilliseconds = runningTimeInMilliseconds || 200;
+    }
+
     async getMove(state) {
-        //await sleep(100);
-        var moves = state.getValidMoves();
-        var randomNr = Math.floor((Math.random() * moves.length));
-        return moves[randomNr];
+        let timeout = Date.now() + (this.runningTimeInMilliseconds);
+        let moves = state.getValidMoves();
+        let randomNr = Math.floor((Math.random() * moves.length));
+        let move = moves[randomNr];
+        await sleep(timeout - Date.now());
+        return move;
     }
 
     opponentMoved(move) {

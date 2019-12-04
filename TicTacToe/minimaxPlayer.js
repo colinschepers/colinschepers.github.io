@@ -1,13 +1,14 @@
 class MiniMaxPlayer {
     constructor(runningTimeInMilliseconds, depthLimit) {
-        this.runningTimeInMilliseconds = runningTimeInMilliseconds;
-        this.depthLimit = depthLimit;
+        this.runningTimeInMilliseconds = runningTimeInMilliseconds || 300;
+        this.depthLimit = depthLimit || 10;
     }
 
     async getMove(state) {
-        let depthLimit = this.depthLimit || 10;
-        let timeout = Date.now() + (this.runningTimeInMilliseconds || 200);
-        return this.__iterativeDeepening(state, depthLimit, timeout);
+        let timeout = Date.now() + (this.runningTimeInMilliseconds);
+        let move = this.__iterativeDeepening(state, this.depthLimit, timeout);
+        await sleep(timeout - Date.now());
+        return move;
     }
 
     opponentMoved(move) {
@@ -90,4 +91,8 @@ class MiniMaxPlayer {
 
         return bestScore;
     }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

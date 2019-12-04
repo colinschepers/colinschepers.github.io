@@ -1,6 +1,6 @@
 class HumanPlayer {
     async getMove(state) {
-        // do nothing
+        // will be handled by mousePressed event
     }
 
     opponentMoved(move) {
