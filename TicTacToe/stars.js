@@ -1,17 +1,20 @@
-const starCount = 50;
-const starRadiusMin = 3;
+const simpleStarCount = 50;
+const complexStarCount = 0;
+const starRadiusMin = 5;
 const starRadiusMax = 10;
 const starMovement = 0.1;
 const starFlickering = 3;
+const starLayers = 5;
 
 var stars = null;
 
 class Star {
-    constructor(x, y, z) {
+    constructor(x, y, z, radius, isComplex) {
         this.x = x;
         this.y = y;
         this.z = z;
-        this.radius = random(starRadiusMin, starRadiusMax);
+        this.radius = radius;
+        this.isComplex = isComplex;
         this.color = {
             r: 255,
             g: 255,
@@ -27,8 +30,24 @@ class Star {
         this.color.a = max(1, min(255, this.color.a + random(-starFlickering, starFlickering)));
 
         translate(this.x, this.y, this.z);
+        if (this.isComplex) {
+            this.drawComplexStar();
+        } else {
+            this.drawSimpleStar();
+        }
+        translate(-this.x, -this.y, -this.z);
+    }
 
-        for (let t = 2; t <= 5; t++) {
+    drawSimpleStar() {
+        for (let t = starLayers; t > 0; t--) {
+            let a = this.color.a * (t / 10);
+            fill(this.color.r, this.color.g, this.color.b, a);
+            circle(this.x, this.y, this.radius / (t / starLayers * 2));
+        }
+    }
+
+    drawComplexStar() {
+        for (let t = 2; t < 2 + starLayers; t++) {
             beginShape();
 
             let a = this.color.a * (1 - t / 10);
@@ -45,17 +64,16 @@ class Star {
 
             endShape();
         }
-
-        translate(-this.x, -this.y, -this.z);
     }
 }
 
 function createStars() {
     let stars = [];
-    for (let i = 0; i < starCount; i++) {
-        let x = random(-width, width);
-        let y = random(-height, height);
-        stars.push(new Star(x, y, -width));
+    for (let i = 0; i < simpleStarCount + complexStarCount; i++) {
+        let x = random(-width / 2, width / 2);
+        let y = random(-height / 2, height / 2);
+        let radius = random(starRadiusMin, starRadiusMax);
+        stars.push(new Star(x, y, -width, radius, i >= simpleStarCount));
     }
     return stars;
 }
