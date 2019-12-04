@@ -1,4 +1,4 @@
-const size = 600;
+const size = 400;
 const barRadius = size / 50;
 const gridSize = (size - 2 * barRadius) / 3;
 const rotationSpeed = 0.15;
@@ -26,7 +26,7 @@ function draw() {
     drawFrame();
     drawSymbols();
     drawMenu();
-    orbitControl();
+    //orbitControl();
 }
 
 function newGame() {
