@@ -8,8 +8,8 @@ function drawMenu() {
     if (!textItems[0][0]) {
         fillTextItems();
     }
-
     if (menuEnabled) {
+        lights();
         for (var y = 0; y < 3; y++) {
             for (var x = 0; x < 3; x++) {
                 this.drawMenuItem(x, y);
@@ -19,13 +19,13 @@ function drawMenu() {
 }
 
 function drawMenuItem(x, y, txt) {
-    push();
-    translate(-gridSizeX + gridSizeX * x, -gridSizeY + gridSizeY * y, thickness);
-    ambientLight(150);
-    directionalLight(255, 255, 255, 0, 0, 1);
+    let gx = gridSize * 0.85;
+    let gy = gridSize * 0.85;
+
+    translate(-gx + gx * x, -gy + gy * y, gridSize / 2);
     texture(textItems[x][y]);
-    plane(gridSizeX * 0.9, gridSizeY * 0.9);
-    pop();
+    plane(gx, gy);
+    translate(gx - gx * x, gy - gy * y, -gridSize / 2);
 }
 
 function fillTextItems() {
@@ -35,9 +35,10 @@ function fillTextItems() {
             textItems[x][y] = createGraphics(width, height);
             textItems[x][y].textAlign(CENTER);
             textItems[x][y].textSize(64);
+            textItems[x][y].textStyle(BOLD);
             textItems[x][y].background(0, 0, 0, 0);
-            textItems[x][y].fill(200);
-            textItems[x][y].text(players[x] + '\nvs.\n' + players[y], width / 2, height / 3);
+            textItems[x][y].fill(200, 200, 255, 200);
+            textItems[x][y].text(players[x] + '\nvs\n' + players[y], width / 2, height / 3);
         }
     }
 }

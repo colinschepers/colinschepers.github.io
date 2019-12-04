@@ -3,7 +3,7 @@ function drawSymbols() {
         return;
     }
     let board = state.get2DBoard();
-    let rotatingSymbols = getRotatingSymbols(board, state.isGameOver);
+    let rotatingSymbols = getRotatingSymbols(board);
     for (var y = 0; y < 3; y++) {
         for (var x = 0; x < 3; x++) {
             if (board[x][y] == 0) {
@@ -16,38 +16,45 @@ function drawSymbols() {
 }
 
 function drawCross(x, y, rotate) {
-    push();
-    translate(-gridSizeX + gridSizeX * x, -gridSizeY + gridSizeY * y, 0);
+    translate(-gridSize + gridSize * x, -gridSize + gridSize * y, 0);
+    let r = -millis() / 1000;
     if (rotate) {
-        rotateY(-millis() / 1000);
+        rotateY(r);
     }
     ambientMaterial(0, 255, 0);
     rotateZ(PI * 0.25);
-    cylinder(thickness, gridSizeX * 0.7);
+    cylinder(barRadius, gridSize * 0.7);
     rotateZ(PI * 0.5);
-    cylinder(thickness, gridSizeX * 0.7);
-    pop();
+    cylinder(barRadius, gridSize * 0.7);
+    rotateZ(PI * 1.25);
+    if (rotate) {
+        rotateY(-r);
+    }
+    translate(gridSize - gridSize * x, gridSize - gridSize * y, 0);
 }
 
 function drawCircle(x, y, rotate) {
-    push();
-    translate(-gridSizeX + gridSizeX * x, -gridSizeY + gridSizeY * y, 0);
+    translate(-gridSize + gridSize * x, -gridSize + gridSize * y, 0);
+    let r = -millis() / 1000;
     if (rotate) {
-        rotateY(-millis() / 1000);
+        rotateY(r);
     }
     ambientMaterial(255, 0, 0);
-    torus(gridSizeX * 0.25, thickness);
-    pop();
+    torus(gridSize * 0.25, barRadius);
+    if (rotate) {
+        rotateY(-r);
+    }
+    translate(gridSize - gridSize * x, gridSize - gridSize * y, 0);
 }
 
-function getRotatingSymbols(board, isGameOver) {
+function getRotatingSymbols(board) {
     let rotatingSymbols = [
         [0, 0, 0],
         [0, 0, 0],
         [0, 0, 0]
     ];
 
-    if (isGameOver) {
+    if (state.isGameOver) {
         for (var i = 0; i < 3; i++) {
             if (board[i][0] != -1 && board[i][0] == board[i][1] && board[i][1] == board[i][2]) {
                 rotatingSymbols[i][0] = 1;
