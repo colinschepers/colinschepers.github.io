@@ -47,7 +47,6 @@ class MiniMaxPlayer {
             }
         }
 
-
         return bestMove;
     }
 
@@ -57,7 +56,7 @@ class MiniMaxPlayer {
             return maxPlayerNr == 0 ? state.score : -state.score;
         }
 
-        let bestScore = 0.5;
+        let bestScore = null;
 
         if (state.getPlayerToMove() == maxPlayerNr) {
             bestScore = -Infinity;
@@ -78,8 +77,6 @@ class MiniMaxPlayer {
                 let nextState = state.clone();
                 nextState.play(move);
 
-                // console.log('depth: ' + depth + ' | move: ' +  move + ' | score: ' +  nextState.score);
-
                 let score = this.__getScore(nextState, depth + 1, depthLimit, maxPlayerNr, alpha, beta);
                 bestScore = Math.min(bestScore, score);
                 alpha = Math.min(beta, bestScore);
@@ -89,7 +86,7 @@ class MiniMaxPlayer {
             }
         }
 
-        return bestScore;
+        return bestScore - (depth * 0.001);
     }
 }
 
