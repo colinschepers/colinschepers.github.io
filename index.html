@@ -28,3 +28,19 @@ robots: noindex
   {% endif %}
 
 </div>
+
+<div class="about">
+  <article class="post-container post-container--single">
+    <header class="post-header">
+      <h1 class="post-title">About</h1>
+    </header>
+
+    <section class="post">
+	  <p>My name is Colin Schepers and I’m a software engineer and problem solver during the day. During the night I’m an expert in sleeping.</p>
+	  <p>I graduated with a Bachelor Degree in Knowledge Engineering from Maastricht University in 2010, and two years later I received my Masters degree in Artificial Intelligence. Since then I’ve been working as full-time software developer and researcher.</p>
+	  <p>Check out my other resources in the navigation menu for more about me and my work.</p>
+    </section>
+    {% if page.comments != false and site.disqus_shortname %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
+  </article>
+  {% if page.comments != false %}{% include disqus.html %}{% endif %}
+</div>
