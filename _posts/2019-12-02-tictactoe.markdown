@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "It all started with a game of Tic-tac-toe..."
-date:   2019-12-17 20:46:11 +0100
-categories: [games, ai]
-tags: [ai, games, mcts, tictactoe]
+date:   2019-12-02 18:01:35 +0100
+categories: [games, ai, javascript]
+tags: [ai, games, mcts, tictactoe, javascript, p5js]
 ---
 Who doesn't know the game of Tic-tac-toe? This time you are floating in space and need to play the game to survive. Enjoy this simple but interesting game while being treated with awesome visual effects. 
 
@@ -19,11 +19,9 @@ The application supportes 3 types of players; the human player allows the user t
 
 ## Sources
 
-<ol>
-<li><a href="https://github.com/colinschepers/TicTacToeJs" rel="nofollow">https://github.com/colinschepers/TicTacToeJs</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Tic-tac-toe" rel="nofollow">https://en.wikipedia.org/wiki/Tic-tac-toe</a></li>
-<li><a href="https://github.com/colinschepers/TicTacToe-CSharp">https://github.com/colinschepers/TicTacToe-CSharp</a></li>
-<li><a href="https://p5js.org/" rel="nofollow">https://p5js.org/</a></li>
-<li><a href="https://www.w3schools.com/html/html5_webworkers.asp" rel="nofollow">https://www.w3schools.com/html/html5_webworkers.asp</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Monte_Carlo_tree_search" rel="nofollow">https://en.wikipedia.org/wiki/Monte_Carlo_tree_search</a></li>
-</ol>
+1. [https://github.com/colinschepers/TicTacToeJs](https://github.com/colinschepers/TicTacToeJs)
+2. [https://en.wikipedia.org/wiki/Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
+3. [https://github.com/colinschepers/TicTacToe-CSharp](https://github.com/colinschepers/TicTacToe-CSharp)
+4. [https://p5js.org](https://p5js.org)
+5. [https://www.w3schools.com/html/html5_webworkers.asp](https://www.w3schools.com/html/html5_webworkers.asp)
+6. [https://en.wikipedia.org/wiki/Monte_Carlo_tree_search](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search)

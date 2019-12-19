@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "Tic-tac-toe on steriods"
-date:   2019-12-17 20:46:11 +0100
-categories: [games, ai]
-tags: [ai, games, mcts, tictactoe]
+date:   2019-12-09 19:46:11 +0100
+categories: [games, ai, javascript]
+tags: [ai, games, mcts, tictactoe, javascript, p5js]
 --- 
 Ultimate Tic-tac-toe is a variant on the famous Tic-tac-toe game. Creating one line of three symbols is not enough now! This is a game that is simple to play yet difficult to master. Try to beat the AI and enjoy the awesome animation effects.
 
@@ -23,12 +23,10 @@ The application supportes 5 types of players; the Human player allows the user t
 
 ## Sources
 
-<ol>
-<li><a href="https://github.com/colinschepers/UltimateTicTacToeJs" rel="nofollow">https://github.com/colinschepers/UltimateTicTacToeJs</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe" rel="nofollow">https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe</a></li>
-<li><a href="https://github.com/colinschepers/UltimateTicTacToe-CSharp">https://github.com/colinschepers/UltimateTicTacToe-CSharp</a></li>
-<li><a href="https://p5js.org/" rel="nofollow">https://p5js.org/</a></li>
-<li><a href="https://www.w3schools.com/html/html5_webworkers.asp" rel="nofollow">https://www.w3schools.com/html/html5_webworkers.asp</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Monte_Carlo_tree_search" rel="nofollow">https://en.wikipedia.org/wiki/Monte_Carlo_tree_search</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Minimax" rel="nofollow">https://en.wikipedia.org/wiki/Minimax</a></li>
-</ol>
+1. [https://github.com/colinschepers/UltimateTicTacToeJs](https://github.com/colinschepers/UltimateTicTacToeJs)
+2. [https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe](https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe)
+3. [https://github.com/colinschepers/UltimateTicTacToe-CSharp](https://github.com/colinschepers/UltimateTicTacToe-CSharp)
+4. [https://p5js.org](https://p5js.org)
+5. [https://www.w3schools.com/html/html5_webworkers.asp](https://www.w3schools.com/html/html5_webworkers.asp)
+6. [https://en.wikipedia.org/wiki/Monte_Carlo_tree_search](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search)
+7. [https://en.wikipedia.org/wiki/Minimax](https://en.wikipedia.org/wiki/Minimax)
