@@ -5,8 +5,4 @@ date:   2019-12-12 00:51:23 +0100
 categories: general
 tags: general about
 ---
-My name is Colin Schepers and I'm a software engineer and problem solver during the day. During the night I'm an expert in sleeping. 
-
-I graduated with a Bachelor Degree in Knowledge Engineering from Maastricht University in 2010, and two years later I received my Masters degree in Artificial Intelligence. Since then I've been working as full-time software developer and researcher.
-
-Check out my other resources for more information about me or my work.
+Hi there! Nice to have you on my website. Have a look around and check out my other resources for more information about me or my work.
