@@ -2,8 +2,8 @@
 layout: post
 title:  "Solving Blokus 3D using WPF"
 date:   2019-11-22 19:05:43 +0100
-categories: [ai, solver, C#]
-tags: [ai, solver, blokus, C#, WPF]
+categories: [AI, Solver, C#]
+tags: [AI, Solver, C#, Pruning]
 --- 
 Back in 2012 I went to a job interview for a position as AI software developer in .NET at CX Company. Because I never programmed in C# before, I decided to create a solver for Blokus 3D. It is my very first C# application.
 
@@ -24,6 +24,8 @@ The graphical user interface is build using WPF. The solver can be started, paus
 ## Implementation
 
 The solver tries to place available pieces in the space in an ordered manner. It uses intelligent pruning by checking if an isolated space is present. Piece objects are cached in a container by piece type, piece permutation and start coordinate to speed up the algorithm.
+
+You can find the source code of the application and try out the executable at my personal [GitHub](https://github.com/colinschepers/Blokus3D).
 
 ## Sources
 

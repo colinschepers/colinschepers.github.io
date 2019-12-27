@@ -2,10 +2,12 @@
 layout: post
 title:  "Ming Mang, the ancient abstract board game from Tibet"
 date:   2019-11-15 19:44:04 +0100
-categories: [games, ai, java]
-tags: [ai, games, ming mang, java, minimax, alpha beta pruning, transposition table, move ordering, search reductions, search extensions, opening book]
+categories: [AI, Games, Java]
+tags: [AI, Games, Java, Minimax, Transposition table, Pruning]
 --- 
 The application demonstrated in this post was created as part of the Intelligent Search Techniques course of the Artificial Intelligence Master at the University of Maastricht in 2011. The AI implemented in the application uses an alpha-beta framework, with enhancements in the form of a transposition table, move ordering techniques, search reductions, search extensions and an automatic opening book creation.
+ 
+You can find the source code of the application at my personal [GitHub](https://github.com/colinschepers/MingMang).
  
 [![The starting position of a game of Ming Mang](https://raw.githubusercontent.com/colinschepers/MingMang/master/pics/Starting_position.jpg)](https://github.com/colinschepers/MingMang)
 *The starting position of a game of Ming Mang.*
@@ -149,6 +151,7 @@ See the table below for the average amount of nodes expanded during a depth 4 se
 It can be seen from the table that all techniques increase the performance, i.e. all cause the amount of nodes in the search tree to decrease in comparison with plain alpha-beta, except for quiescence search. This technique is a search extension and therefore expands more nodes, although applied with other techniques the deeper search can cause more prunings in the rest of the search. Another conclusion is that when only implementing simple techniques, they have a very big impact on the search tree, but in combination with other techniques they appear to have only a small impact. For example implementing killer moves for alpha-beta decreases the search tree approximately 7-fold, but in combination with all other techniques, killer moves reduce the search tree only with 11 nodes in this case.
 
 ## References
+
 1. [https://github.com/colinschepers/MingMang](https://github.com/colinschepers/MingMang)
 2. Chess programming - [bitboards](https://www.chessprogramming.org/Bitboards)
 3. Chess programming - [magic bitboards](https://www.chessprogramming.org/Magic_Bitboards)
