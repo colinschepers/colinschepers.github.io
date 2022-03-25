@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Challenging yourself with Advent of Code"
-date:   2022-01-08 12:11:51 +0100
+date:   2021-12-29 17:11:51 +0100
 categories: [AI, Algorithms, Python]
 tags: [AI, Algorithms, Python]
 --- 
