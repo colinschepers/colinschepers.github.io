@@ -2,8 +2,8 @@
 layout: post
 title:  "Tic-tac-toe on steriods"
 date:   2019-12-09 19:46:11 +0100
-categories: [AI, Games, JavaScript]
-tags: [AI, Games, MCTS, Tic-tac-toe, JavaScript, p5.js]
+categories: [AI, Algorithms, Games, JavaScript]
+tags: [AI, Algorithms, Games, MCTS, Tic-tac-toe, JavaScript, p5.js]
 --- 
 Ultimate Tic-tac-toe is a variant on the famous Tic-tac-toe game. Creating one line of three symbols is not enough now! This is a game that is simple to play yet difficult to master. Try to beat the AI and enjoy the awesome animation effects. 
 

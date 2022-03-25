@@ -2,8 +2,8 @@
 layout: post
 title:  "Take a look at image processing!"
 date:   2020-04-12 10:10:31 +0100
-categories: [AI, ImageProcessing, JavaScript]
-tags: [AI, ImageProcessing, JavaScript, p5.js]
+categories: [AI, Algorithms, ImageProcessing, JavaScript]
+tags: [AI, Algorithms, ImageProcessing, JavaScript, p5.js]
 --- 
 Everyone reading this has proably opened Photoshop at least once. Ever wondered how the filters works? This application demonstrates several relatively simple image processing techniques.
 

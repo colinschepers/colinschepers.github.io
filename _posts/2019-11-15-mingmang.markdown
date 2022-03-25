@@ -2,8 +2,8 @@
 layout: post
 title:  "Ming Mang, the ancient abstract board game from Tibet"
 date:   2019-11-15 19:44:04 +0100
-categories: [AI, Games, Java]
-tags: [AI, Games, Java, Minimax, Transposition table, Pruning]
+categories: [AI, Algorithms, Games, Java]
+tags: [AI, Algorithms, Games, Java, Minimax, Transposition table, Pruning]
 --- 
 The application demonstrated in this post was created as part of the Intelligent Search Techniques course of the Artificial Intelligence Master at the University of Maastricht in 2011. The AI implemented in the application uses an alpha-beta framework, with enhancements in the form of a transposition table, move ordering techniques, search reductions, search extensions and an automatic opening book creation.
  

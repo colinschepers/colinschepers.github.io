@@ -2,8 +2,8 @@
 layout: post
 title:  "It always starts with a game of Tic-tac-toe..."
 date:   2019-12-02 18:01:35 +0100
-categories: [AI, Games, JavaScript]
-tags: [AI, Games, MCTS, Tic-tac-toe, JavaScript, p5.js]
+categories: [AI, Algorithms, Games, JavaScript]
+tags: [AI, Algorithms, Games, MCTS, Tic-tac-toe, JavaScript, p5.js]
 ---
 Who doesn't know the game of Tic-tac-toe [1]? This time you are floating in space and need to play the game to survive. Enjoy this simple but interesting game while being treated with awesome visual effects. 
 
@@ -15,7 +15,7 @@ The frame, crosses and circles are rendered in 3D, reflect lighting coming from 
 
 The computationally expensive algorithms are run using Web Workers [4], to ensure optimal responsiveness of the GUI. Web Workers are a simple means for web content to run scripts in background threads.
 
-The application supportes 3 types of players; the human player allows the user to click one of the empty squares to play a move, the random player plays, like the name implies, a random valid move every time, while the MCTS player uses the Monte Carlo Tree Search algorithm described in [5]. Since the game of Tic-tac-toe can be solved quite easily and the outcome is always a draw when playing optimal, is it impossible to win against the MCTS player. Good luck trying!
+The application supports 3 types of players; the human player allows the user to click one of the empty squares to play a move, the random player plays, like the name implies, a random valid move every time, while the MCTS player uses the Monte Carlo Tree Search algorithm described in [5]. Since the game of Tic-tac-toe can be solved quite easily and the outcome is always a draw when playing optimal, is it impossible to win against the MCTS player. Good luck trying!
 
 You can find the source code of the application at my personal [GitHub](https://github.com/colinschepers/TicTacToeJs).
 

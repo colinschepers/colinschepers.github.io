@@ -2,8 +2,8 @@
 layout: post
 title:  "Solving Blokus 3D using WPF"
 date:   2019-11-22 19:05:43 +0100
-categories: [AI, Solver, C#]
-tags: [AI, Solver, C#, Pruning]
+categories: [AI, Algorithms, Solver, C#]
+tags: [AI, Algorithms, Solver, C#, Pruning]
 --- 
 Back in 2012 I went to a job interview for a position as AI software developer in .NET at CX Company. Because I never programmed in C# before, I decided to create a solver for Blokus 3D. It is my very first C# application.
 
