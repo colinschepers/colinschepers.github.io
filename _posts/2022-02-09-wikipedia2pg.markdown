@@ -1,6 +1,8 @@
 ---
-layout: post title:  "Extracting Wikipedia dumps to Postgres"
-date:   2022-02-09 20:41:13 +0100 categories: [Databases, Postgres]
+layout: post 
+title:  "Extracting Wikipedia dumps to Postgres"
+date:   2022-02-09 20:41:13 +0100 
+categories: [Databases, Postgres]
 tags: [Databases, Postgres]
 --- 
 This article is about my python tool that extracts Wikipedia dumps from your local system or online, and imports them
