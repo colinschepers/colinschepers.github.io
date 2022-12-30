@@ -1,6 +1,8 @@
 ---
-layout: post title:  "Challenging yourself with Advent of Code"
-date:   2021-12-29 17:11:51 +0100 categories: [AI, Algorithms, Python]
+layout: post 
+title:  "Challenging yourself with Advent of Code"
+date:   2021-12-29 17:11:51 +0100 
+categories: [AI, Algorithms, Python]
 tags: [AI, Algorithms, Python]
 --- 
 Advent of Code [1] is an advent calendar of small programming puzzles for a variety of skill sets and skill levels that
