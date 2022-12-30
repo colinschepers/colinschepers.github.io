@@ -3,7 +3,7 @@ layout: post
 title:  "Extracting Wikipedia dumps to Postgres"
 date:   2022-02-09 20:41:13 +0100 
 categories: [Databases, Postgres, Python]
-tags: [Databases, Postgres, Python, Compression, SQL, XML, Wikipedia, Wikimedia, Regex, ElementTree]
+tags: [Databases, Postgres, Python, Compression, SQL, XML, Wikipedia, Regex]
 --- 
 This article is about my python tool that extracts Wikipedia dumps from your local system or online, and imports them
 into [Postgres](https://www.postgresql.org/) [1]. It's easy to use and insanely fast.

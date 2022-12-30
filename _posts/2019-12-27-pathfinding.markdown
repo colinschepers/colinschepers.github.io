@@ -3,7 +3,7 @@ layout: post
 title:  "Finding paths can be fun!"
 date:   2019-12-27 15:11:53 +0100
 categories: [AI, Algorithms, Pathfinding, JavaScript]
-tags: [AI, Algorithms, Pathfinding, JavaScript, p5.js]
+tags: [AI, Algorithms, Pathfinding, JavaScript, p5.js, Pruning]
 --- 
 Ever wondered how path finding techniques actually work? This is a demo application showing the steps of the A* algorithm [1].
 

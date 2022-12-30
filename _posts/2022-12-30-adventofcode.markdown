@@ -3,7 +3,7 @@ layout: post
 title:  "Yet another year ended with Advent of Code"
 date:   2022-12-30 16:45:31 +0100 
 categories: [AI, Algorithms, Python]
-tags: [AI, Algorithms, Python]
+tags: [AI, Algorithms, Python, Regex, Pathfinding, Optimization, Pruning]
 --- 
 As already described in [previous year's post](/2021/adventofcode/) about Advent of Code [1], it is an advent calendar
 of small programming puzzles for a variety of skill sets and skill levels that can be solved in any programming
