@@ -19,12 +19,12 @@ accessible, while black denotes the default accessible state of a square.
 <p><div style="text-align:center;"><iframe src="https://colinschepers.github.io/PathFindingJS/" width="605px" height="655px"></iframe></div></p>
 
 After altering squares in the grid, you can click on the *start* button to start the algorithm and the *pause* button
-will pause the algorithm so you can have a look at the current state of the algorithm. The *clear* button will clear the
+will pause the algorithm so that you can have a look at the current state of the algorithm. The *clear* button will clear the
 output of the algorithm in the grid but will leave the squares unaltered. The *reset* button on the other hand will
 reset the whole grid, so it will also clear the walls.
 
 Enabling the *Show trace lines* will draw lines on the grid, showing the route the algorithm would take from square to
-square. These lines will be used in the backtracking step in the algorithm when the goal is reached. Simply folowing the
+square. These lines will be used in the backtracking step in the algorithm when the goal is reached. Simply following the
 trail back from goal to start yields the shortest path. The *Allow diagonal* button determines whether diagonal movement
 is allowed. It is quite interesting to see the difference in how the algorithm behaves when changing the allowed
 movement pattern!
@@ -44,7 +44,7 @@ algorithm will change the color of the squares of the path pink.
 
 This fully front-end based application is written in JavaScript (besides some basic *html* and *css*) and the
 visualization is done using the *p5.js* library [2]. The JavaScript async *setTimeout* function is used for every method
-call in the A* algorithm to allow for an delay.
+call in the A* algorithm to allow for a delay.
 
 For faster storage and lookup, a 1 dimensional coordinate system is used, i.e. the first cell is `0` and the last cell
 is `(width * height - 1)`. To calculate the `x` and `y` coordinate of a 2D system, you can simply

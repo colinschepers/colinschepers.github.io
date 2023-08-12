@@ -22,7 +22,7 @@ location. For example, if X played in the top right square of their local board,
 board at the top right of the global board. O can then play in any one of the nine available spots in that local board,
 each move sending X to a different local board. If a move is played so that it is to win a local board by the rules of
 normal tic-tac-toe, then the entire local board is marked as a victory for the player in the global board. Once a local
-board is won by a player or it is filled completely, no more moves may be played in that board. If a player is sent to
+board is won by a player, or it is filled completely, no more moves may be played in that board. If a player is sent to
 such a board, then that player may play in any other board. Game play ends when either a player wins the global board or
 there are no legal moves remaining, in which case the game is a draw.
 
@@ -36,7 +36,7 @@ of the final winning line.
 The computationally expensive algorithms are run using Web Workers [4], to ensure optimal responsiveness of the GUI. Web
 Workers are a simple means for web content to run scripts in background threads.
 
-The application supportes 5 types of players; the Human player allows the user to click one of the valid squares to play
+The application supports 5 types of players; the Human player allows the user to click one of the valid squares to play
 a move, while the Easy, Medium, Hard and Godlike players are the different difficulties of the AI player. Each
 difficulty uses a Monte Carlo Tree Search algorithm described in [5] and the difference between them is the
 computational time given to them. Since this algorithm relies on random simulations of games in order to determine how

@@ -18,7 +18,7 @@ done using WEBGL.
 
 The frame, crosses and circles are rendered in 3D, reflect lighting coming from the mouse's position and are animated
 when the game ends. The stars in the background are rendered with smart use of multiple 2D layers, transparency and some
-randomization. Unfortunately, drawing the many stars in the 3D space can cause some framerate issues due to the slow
+randomization. Unfortunately, drawing the many stars in the 3D space can cause some frame rate issues due to the slow
 nature of the software language.
 
 The computationally expensive algorithms are run using Web Workers [4], to ensure optimal responsiveness of the GUI. Web
