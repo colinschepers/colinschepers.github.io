@@ -1,7 +1,8 @@
 ---
-layout: post 
+
+layout: post
 title:  "Yet another year ended with Advent of Code"
-date:   2022-12-30 16:45:31 +0100 
+date:   2022-12-30 16:45:31 +0100
 categories: [AI, Algorithms, Python]
 tags: [AI, Algorithms, Python, Regex, Pathfinding, Optimization, Pruning]
 --- 

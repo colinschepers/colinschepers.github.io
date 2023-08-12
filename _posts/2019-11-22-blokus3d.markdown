@@ -1,4 +1,5 @@
 ---
+
 layout: post
 title:  "Solving Blokus 3D using WPF"
 date:   2019-11-22 19:05:43 +0100
@@ -7,25 +8,37 @@ tags: [AI, Algorithms, C#, Optimization, Pruning]
 --- 
 Back in 2012 I went to a job interview for a position as AI software developer in .NET at CX Company. Because I never programmed in C# before, I decided to create a solver for Blokus 3D. It is my very first C# application.
 
+Back in 2012 I went to a job interview for a position as AI software developer in .NET at CX Company. Because I never
+programmed in C# before, I decided to create a solver for Blokus 3D. It is my very first C# application.
+
 [![The graphical user interface](https://raw.githubusercontent.com/colinschepers/Blokus3D/master/Images/GUI.gif)](https://github.com/colinschepers/Blokus3D)
 *The graphical user interface of the Blokus 3D application.*
 
 ## Setup
 
-The goal of the application is to completely fill a 3 dimensional space with a (sub)set of the pieces of the Block3D game. Any of the 3 dimensions of the space to solve is configurable with a minimum of 1 and a maximum of 6. The unique pieces are shown in the image below. There are 4 sets of pieces, allowing the solver to use the same piece 4 times.
+The goal of the application is to completely fill a 3 dimensional space with a (sub)set of the pieces of the Block3D
+game. Any of the 3 dimensions of the space to solve is configurable with a minimum of 1 and a maximum of 6. The unique
+pieces are shown in the image below. There are 4 sets of pieces, allowing the solver to use the same piece 4 times.
 
 ![The 11 unique pieces](https://raw.githubusercontent.com/colinschepers/Blokus3D/master/Images/Pieces.gif)
 *Four sets of the 11 unique pieces of Blokus 3D.*
 
 ## User Interface
 
-The graphical user interface is build using WPF. The solver can be started, paused and stopped using the first three buttons on the top and the user can rotate the 3D object by dragging the mouse. To be able to follow the algorithm's steps it is possible to reduce the solver's speed, or you can set the speed to maximum. The solutions found by the solver can be viewed piece by piece using the buttons on the bottom of the window. In the options window the user can change the dimensions and the pieces available to the solver.
+The graphical user interface is build using WPF. The solver can be started, paused and stopped using the first three
+buttons on the top and the user can rotate the 3D object by dragging the mouse. To be able to follow the algorithm's
+steps it is possible to reduce the solver's speed, or you can set the speed to maximum. The solutions found by the
+solver can be viewed piece by piece using the buttons on the bottom of the window. In the options window the user can
+change the dimensions and the pieces available to the solver.
 
 ## Implementation
 
-The solver tries to place available pieces in the space in an ordered manner. It uses intelligent pruning by checking if an isolated space is present. Piece objects are cached in a container by piece type, piece permutation and start coordinate to speed up the algorithm.
+The solver tries to place available pieces in the space in an ordered manner. It uses intelligent pruning by checking if
+an isolated space is present. Piece objects are cached in a container by piece type, piece permutation and start
+coordinate to speed up the algorithm.
 
-You can find the source code of the application and try out the executable at my personal [GitHub](https://github.com/colinschepers/Blokus3D).
+You can find the source code of the application and try out the executable at my
+personal [GitHub](https://github.com/colinschepers/Blokus3D).
 
 ## Sources
 

@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Welcome to my website!"
-date:   2019-11-12 18:51:23 +0100
-categories: [General]
-tags: [General]
+title: "Welcome to my website!"
+date: 2019-11-12 18:51:23 +0100
+categories: [ General ]
+tags: [ General ]
 ---
-Hi there! Nice to have you on my website. Have a look around and check out my other resources for more information about me or my work.
+
+Hi there! Nice to have you on my website. Have a look around and check out my other resources for more information about
+me or my work.

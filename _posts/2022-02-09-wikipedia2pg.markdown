@@ -1,7 +1,8 @@
 ---
-layout: post 
+
+layout: post
 title:  "Extracting Wikipedia dumps to Postgres"
-date:   2022-02-09 20:41:13 +0100 
+date:   2022-02-09 20:41:13 +0100
 categories: [Databases, Postgres, Python]
 tags: [Databases, Postgres, Python, Compression, SQL, XML, Wikipedia, Regex]
 --- 
@@ -14,13 +15,13 @@ Wikimedia provides public [dumps](https://dumps.wikimedia.org/enwiki/latest/) [2
 data. The dumps are free to download and reuse. Currently, this application only supports the following data, but the
 code is set up to be extended with little effort:
 
-| Entity     | Type | File                                                                                                                                          |
-|------------|------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| Page       | sql  | [enwiki-latest-page.sql.gz](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-page.sql.gz)                                               |
-| Pagelink   | sql  | [enwiki-latest-pagelinks.sql.gz](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pagelinks.sql.gz)                                     |                                                                                                  | Text        |
-| Redirect   | sql  | [enwiki-latest-redirect.sql.gz](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-redirect.sql.gz)                                       |
-| Abstract   | xml  | [enwiki-latest-abstract.xml.gz](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-abstract.xml.gz)                                       |
-| Article    | xml  | [enwiki-latest-pages-articles-multistream.xml.bz2](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles-multistream.xml.bz2) |
+| Entity   | Type | File                                                                                                                                          |
+|----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Page     | sql  | [enwiki-latest-page.sql.gz](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-page.sql.gz)                                               |
+| Pagelink | sql  | [enwiki-latest-pagelinks.sql.gz](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pagelinks.sql.gz)                                     |                                                                                                  | Text        |
+| Redirect | sql  | [enwiki-latest-redirect.sql.gz](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-redirect.sql.gz)                                       |
+| Abstract | xml  | [enwiki-latest-abstract.xml.gz](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-abstract.xml.gz)                                       |
+| Article  | xml  | [enwiki-latest-pages-articles-multistream.xml.bz2](http://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles-multistream.xml.bz2) |
 
 See [Wikimedia](https://meta.wikimedia.org/wiki/Data_dumps/What%27s_available_for_download) [3] for a more detailed
 description of each entity.
